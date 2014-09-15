@@ -61,22 +61,30 @@
 		  }
 		}
 		
+		//main function
 		function setBoxes(container,customClassName) {
 		  var parents;
+		  
+		  //if container is defined, set boxes only within
 		  if(container) {
   		  parents = getContainers(container);
   		}
+		  
+		  //otherwise iterate through all .box-containers in a HTML template.
   		else { 
   		  parents = getContainers(); 
   		}
   		
   		var parentsLength = parents.length;
   		var i = 0;
-  		  		
+  		
+  		//all magic is here  		
   		for(i;i<parentsLength;++i) {
   		  var j = 0;
     		var children = getBoxes(parents[i]);
     		var childrenLength = children.length;
+    		
+    		//if custom class is defined use it
     		if(customClassName) {
       		if(typeof customClassName == 'array') {
         		//TODO
@@ -87,7 +95,7 @@
     		}
     		else {
       		if(childrenLength < 8) { var className = 'span1-'+childrenLength; }
-          else { console.log("Too much boxes in container. Set div-[1-7] class first."); }
+          else { console.log("Too much boxes in container, set span1[2-7] manually."); }
     		}
     		
     		addClass(parents[i].lastChild,opts.lastBoxClass);
@@ -100,7 +108,5 @@
       }
 		}
 
-		//setBoxes('history-container','span1-4');
 		setBoxes();
-
 })();
