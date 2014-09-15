@@ -3,7 +3,7 @@ simplate
 ========
 
 Simplate is a tiny responsive template engine for simple websites like blogs, company's websites or even apps.
-It is really-really basic and not bullet-proof (for now) so if you have not strong foundation in CSS/LESS you should probably go to Bootstrap or use any other CSS framework, there are many on today's Internet.
+It is really, really basic and not bullet-proof (for now) so if you don't have strong foundation in CSS/LESS you should probably go with Bootstrap or use any other CSS framework, there are many on today's Internet.
 
 **Main goals:**
   - intelligent responsivness on every device (I'm still working on it!);
