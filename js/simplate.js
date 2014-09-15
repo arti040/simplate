@@ -34,8 +34,13 @@
   		firstHeight > secondHeight ? secondEl.style.height = firstHeight + 'px' : firstEl.style.height = secondHeight + 'px';
 		}
 		
-		function getContainers() {
-  		return document.querySelectorAll('.'+opts.containerClass);
+		function getContainers(container) {
+		  if(container) {
+  		  return document.querySelectorAll('.'+container);
+		  }
+		  else {
+  		  return document.querySelectorAll('.'+opts.containerClass);
+  		}
 		}
 		function getBoxes(container) {
   		return container.querySelectorAll('.'+opts.boxClass);
@@ -56,8 +61,15 @@
 		  }
 		}
 		
-		function setBoxes() {
-  		var parents = getContainers();
+		function setBoxes(container,customClassName) {
+		  var parents;
+		  if(container) {
+  		  parents = getContainers(container);
+  		}
+  		else { 
+  		  parents = getContainers(); 
+  		}
+  		
   		var parentsLength = parents.length;
   		var i = 0;
   		  		
@@ -65,22 +77,30 @@
   		  var j = 0;
     		var children = getBoxes(parents[i]);
     		var childrenLength = children.length;
-    		if(childrenLength < 8) { var className = 'span1-'+childrenLength; }
-    		else { console.log("Too much boxes in container. Set div-[1-7] class first."); }
-
+    		if(customClassName) {
+      		if(typeof customClassName == 'array') {
+        		//TODO
+      		}
+      		else {
+        		className = customClassName;
+      		}
+    		}
+    		else {
+      		if(childrenLength < 8) { var className = 'span1-'+childrenLength; }
+          else { console.log("Too much boxes in container. Set div-[1-7] class first."); }
+    		}
+    		
     		addClass(parents[i].lastChild,opts.lastBoxClass);
     		
     		for(j;j<childrenLength;++j) {
-
     		  if(!matchClass(children[j],/span1-[2-7]$/)) { 
     		    addClass(children[j],className);
     		  }
     		}
       }
 		}
-		
-		//equalsHeights('content','sidebar');
-		//findLastBox('.box-container');
+
+		//setBoxes('history-container','span1-4');
 		setBoxes();
 
 })();

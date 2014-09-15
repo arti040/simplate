@@ -61,7 +61,7 @@ Of course no! You are not limited to DIVs only! Every element can be a box, just
 ```
 
 
-**(TODO!) Adventages of using .box-container:**
+**Adventages of using .box-container:**
 
 If you use a container and will not add any aditional classes for boxes, like below:
 ```
