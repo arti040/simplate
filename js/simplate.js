@@ -1,7 +1,14 @@
+(function() {
 
-(function(opts) {
+    //defautls
+    var opts = {
+      containerClass: 'box-container',
+      boxClass: 'box',
+      lastBoxClass: '.last-box'
+    }
+ 		var resizeTimeoutId;	
+
   	// useful functions		
-		var resizeTimeoutId;	
 		function hasClass(el,name){
 			return new RegExp('(\\s|^)'+name+'(\\s|$)').test(el.className);
 		}
@@ -11,24 +18,36 @@
 		function removeClass(el,name){
 			el.className=el.className.replace(new RegExp('(\\s|^)'+name+'(\\s|$)'),' ').replace(/^\s+|\s+$/g, '');
 		}			
+		function matchClass(el,pattern) {
+  		return new RegExp(pattern).test(el.className);
+		}
+		
 		function windowResize(e) {
 			window.clearTimeout(resizeTimeoutId);
 			resizeTimeoutId = window.setTimeout(function(){ console.log('Simplate: Layout changed.'); },200);
 		}
-		function equalsHeights(first,second) {
-		  var firstEl = document.getElementById(first);
-		  var secondEl = document.getElementById(second);
+		function equalsHeights(firstEL,secondEl) {
+		  var firstEl = document.getElementById(firstEl);
+		  var secondEl = document.getElementById(secondEl);
   		var firstHeight = firstEl.offsetHeight;
   		var secondHeight = secondEl.offsetHeight;
   		firstHeight > secondHeight ? secondEl.style.height = firstHeight + 'px' : firstEl.style.height = secondHeight + 'px';
 		}
+		
+		function getContainers() {
+  		return document.querySelectorAll('.'+opts.containerClass);
+		}
+		function getBoxes(container) {
+  		return container.querySelectorAll('.'+opts.boxClass);
+		}
+		
 		function setHeight(parents,el) {
-		  var parentEls = document.querySelectorAll('.'+ parents);
+		  var parents = getContainers();
 		  var parentsLength = parentEls.length;
 		  var i = 0;
 		  for(i;i<parentsLength;++i) {
-  		  var parentHeight = parentEls[i].offsetHeight;
-  		  var boxes = parentEls[i].querySelectorAll('.box');
+  		  var parentHeight = parents[i].offsetHeight;
+  		  var boxes = getBoxes(pranets[i]);
   		  var boxesLength = boxes.length;
   		  var j = 0;
   		  for(j;j<boxesLength;++j) {
@@ -37,7 +56,31 @@
 		  }
 		}
 		
-		var boxes = document.querySelectorAll('.box');
-		equalsHeights('content','sidebar');
+		function setBoxes() {
+  		var parents = getContainers();
+  		var parentsLength = parents.length;
+  		var i = 0;
+  		  		
+  		for(i;i<parentsLength;++i) {
+  		  var j = 0;
+    		var children = getBoxes(parents[i]);
+    		var childrenLength = children.length;
+    		if(childrenLength < 8) { var className = 'span1-'+childrenLength; }
+    		else { console.log("Too much boxes in container. Set div-[1-7] class first."); }
+
+    		addClass(parents[i].lastChild,opts.lastBoxClass);
+    		
+    		for(j;j<childrenLength;++j) {
+
+    		  if(!matchClass(children[j],/span1-[2-7]$/)) { 
+    		    addClass(children[j],className);
+    		  }
+    		}
+      }
+		}
 		
+		//equalsHeights('content','sidebar');
+		//findLastBox('.box-container');
+		setBoxes();
+
 })();

@@ -2,23 +2,25 @@
 .box-container {
   clear: both;
   overflow: @overflow;
-  text-align: center;
-  * { text-align: left; }
+  text-align: @default-align;
+  .box { text-align: left; }
 }
 .box {
   display: inline-block !important;
   vertical-align: @valign-boxes !important;
   margin-right: @boxes-margin !important;
-  .box {
-    margin-bottom: 1rem;
-    &.no-margin { margin-bottom: 0; }
-  }
   &.last-box { margin-right: 0; }
 }
-.box.no-margin { 
-  margin-top: 0;
-  margin-bottom: 0;
+ul.box { 
+  list-style: none;
+  margin: 0 @boxes-margin 0 0 !important;
+  padding: 0;
 }
+
+.if ('yes',@fillBoxWithImage) when (@condition = true) {
+  .box > img { max-width: 100%; }
+}
+
 .box.span1 {
   width: 100%;
 }
@@ -36,6 +38,7 @@
     width: 100%; 
   }
 }
+
 .box.span1-4 {
   width: @width25;
   @media @medium { width: @width50; }
@@ -48,6 +51,7 @@
   width: @width75;
   @media @medium { width: 100%; }
 }
+
 .box.span1-5 {
   width: @width20;
   @media @medium { width: 100%; }
@@ -64,6 +68,7 @@
   width: @width80;
   @media @medium { width: 100%; }
 }
+
 .box.span1-6 {
   width: @width17;
   @media @medium { width: 100%; }
@@ -72,6 +77,7 @@
   width: @width83;
   @media @medium { width: 100%; }
 }
+
 .box.span1-7 {
   width: @width14;
 }
