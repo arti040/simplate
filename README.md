@@ -71,13 +71,13 @@ If you use a container and will not add any aditional classes for boxes, like be
 </div>
 ```
 
-...simplate will automatically add them for you. In this case, each of box will get "span1-2" and start to occupie 50% of its parent. Cool, huh? :D Also, you can give a className as a parametr and iterate only thorugh desired .box-containers. What's more? Now you cand add a static class for group of boxes in a particular box-container. Simple example:
+...simplate will automatically add them for you. In this case, each of box will get "span1-2" and start to occupie 50% of its parent. Cool, huh? :D Also, you can give a class name as a parametr (container) and simple will iterate thorugh desired boxes only. What's more - you cand add a fixed class for group of boxes in a particular container. Quick example:
 
 ```
 setBoxes('my-posts','span1-7');
 ```
 
-...which means - take all containers with class .my-posts and give .span1-7 for each .box inside. Yay! :-)
+...which means - take containers with class .my-posts only and give .span1-7 for each .box inside. Yay! :-)
 
 
 Demo:
