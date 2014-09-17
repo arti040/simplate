@@ -35,12 +35,8 @@
 		}
 		
 		function getContainers(container) {
-		  if(container) {
-  		  return document.querySelectorAll('.'+container);
-		  }
-		  else {
-  		  return document.querySelectorAll('.'+opts.containerClass);
-  		}
+		  el = container || opts.containerClass;
+  		return document.querySelectorAll('.'+el);
 		}
 		function getBoxes(container) {
   		return container.querySelectorAll('.'+opts.boxClass);
@@ -61,23 +57,20 @@
 		  }
 		}
 		
-		//main function
+		/*
+		 * setBoxes() adds span[1-6]-[2-7] class or customClass given as parametr.
+		 * Params:
+		 * container: className (DOM) || .box-container
+		 * customClassName: className (DOM)
+		 */
+		
 		function setBoxes(container,customClassName) {
 		  var parents;
+		  var i = 0;
 		  
-		  //if container is defined, set boxes only within
-		  if(container) {
-  		  parents = getContainers(container);
-  		}
-		  
-		  //otherwise iterate through all .box-containers in a HTML template.
-  		else { 
-  		  parents = getContainers(); 
-  		}
-  		
+		  container ? parents = getContainers(container) : parents = getContainers(); 
   		var parentsLength = parents.length;
-  		var i = 0;
-  		
+  			
   		//all magic is here  		
   		for(i;i<parentsLength;++i) {
   		  var j = 0;
@@ -101,7 +94,7 @@
     		addClass(parents[i].lastChild,opts.lastBoxClass);
     		
     		for(j;j<childrenLength;++j) {
-    		  if(!matchClass(children[j],/span1-[2-7]$/)) { 
+    		  if(!matchClass(children[j],/span[1-6]-[2-7]/)) { 
     		    addClass(children[j],className);
     		  }
     		}

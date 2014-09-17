@@ -9,7 +9,7 @@ html {
   max-width: 72rem;
   min-width: 24rem;
   background-color: white;
-  @include respond-to('phone') {
+  @include respond-to('tiny screen') {
     margin: 0;
     padding: 1rem;
   }
@@ -26,7 +26,7 @@ footer {
 }
 .box {
   margin-bottom: 2px;
-  margin-left: 1px;
+  min-height: 12rem;
 }
 .box .box {
   background-color: #999;

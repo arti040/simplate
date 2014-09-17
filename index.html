@@ -4,7 +4,10 @@
 	<meta http-equiv="content-type" content="text/html; charset=utf-8">
 	
 	<!-- stylesheets -->
-	<link rel="stylesheet/less" type="text/css" href="css/less.modules/styles.less">
+	<!-- support for LESS will be dropped soon. -->
+	<!--<link rel="stylesheet/less" type="text/css" href="css/simplate.less/styles.less">-->
+	
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 	
 	<title>Simplate</title>
 </head>
@@ -20,7 +23,7 @@
         <li>offset: <span>none</span></li>
       </ul>
 		</header>
-		<section id="content" class="box span2-3">
+		<section id="content" class="box span2-3 small-margin">
 			  <ul class="debug">
 			    <li>HTML el: &lt;SECTION&gt; //content</li>
           <li>type: <span>box</span></li>
@@ -34,9 +37,9 @@
             <ul class="debug">
     			    <li>HTML el: &lt;DIV&gt;</li>
               <li>type: <span>box</span></li>
-              <li>layout class: <span>none</span></li>
+              <li>layout class: <span>auto (simplate.js)</span></li>
               <li>custom classes: <span>none</span></li>
-              <li>width: <span>auto</span></li>
+              <li>width: <span>auto (simplate.js)</span></li>
               <li>offset: <span>none</span></li>
             </ul>
           </div>
@@ -44,9 +47,9 @@
             <ul class="debug">
     			    <li>HTML el: &lt;DIV&gt;</li>
               <li>type: <span>box</span></li>
-              <li>layout class: <span>none</span></li>
+              <li>layout class: <span>auto (simplate.js)</span></li>
               <li>custom classes: <span>none</span></li>
-              <li>width: <span>auto</span></li>
+              <li>width: <span>auto (simplate.js)</span></li>
               <li>offset: <span>none</span></li>
             </ul>
           </div>
@@ -56,9 +59,9 @@
             <ul class="debug">
     			    <li>HTML el: &lt;DIV&gt;</li>
               <li>type: <span>box</span></li>
-              <li>layout class: <span>auto</span></li>
+              <li>layout class: <span>auto (simplate.js)</span></li>
               <li>custom classes: <span>none</span></li>
-              <li>width: <span>auto</span></li>
+              <li>width: <span>auto (simplate.js)</span></li>
               <li>offset: <span>none</span></li>
             </ul>
           </div>
@@ -66,9 +69,9 @@
             <ul class="debug">
     			    <li>HTML el: &lt;DIV&gt;</li>
               <li>type: <span>box</span></li>
-              <li>layout class: <span>auto</span></li>
+              <li>layout class: <span>auto (simplate.js)</span></li>
               <li>custom classes: <span>none</span></li>
-              <li>width: <span>auto</span></li>
+              <li>width: <span>auto (simplate.js)</span></li>
               <li>offset: <span>none</span></li>
             </ul>
           </div>
@@ -76,9 +79,9 @@
             <ul class="debug">
     			    <li>HTML el: &lt;DIV&gt;</li>
               <li>type: <span>box</span></li>
-              <li>layout class: <span>auto</span></li>
+              <li>layout class: <span>auto (simplate.js)</span></li>
               <li>custom classes: <span>none</span></li>
-              <li>width: <span>auto</span></li>
+              <li>width: <span>auto (simplate.js)</span></li>
               <li>offset: <span>none</span></li>
             </ul>
           </div>
@@ -94,33 +97,33 @@
           <li>offset: <span>none</span></li>
         </ul>
         <div class="box-container">
-          <div class="box span1">
+          <div class="box span1-3">
             <ul class="debug">
     			    <li>HTML el: &lt;DIV&gt;</li>
               <li>type: <span>box</span></li>
-              <li>layout class: <span>span1</span></li>
+              <li>layout class: <span>span1-3</span></li>
               <li>custom classes: <span>none</span></li>
-              <li>width: <span>100%</span></li>
+              <li>width: <span>33%</span></li>
               <li>offset: <span>none</span></li>
             </ul>
           </div>
-          <div class="box span1 no-margin">
+          <div class="box span1-3">
             <ul class="debug">
     			    <li>HTML el: &lt;DIV&gt;</li>
               <li>type: <span>box</span></li>
-              <li>layout class: <span>span1</span></li>
+              <li>layout class: <span>span1-3</span></li>
               <li>custom classes: <span>no-margin</span></li>
-              <li>width: <span>100%</span></li>
+              <li>width: <span>33%</span></li>
               <li>offset: <span>none</span></li>
             </ul>
           </div>
-          <div class="box span1">
+          <div class="box span1-3">
             <ul class="debug">
     			    <li>HTML el: &lt;DIV&gt;</li>
               <li>type: <span>box</span></li>
-              <li>layout class: <span>span1</span></li>
+              <li>layout class: <span>span1-3</span></li>
               <li>custom classes: <span></span></li>
-              <li>width: <span>100%</span></li>
+              <li>width: <span>33%</span></li>
               <li>offset: <span>none</span></li>
             </ul>
           </div>
@@ -128,7 +131,7 @@
 		</aside>
 		<section class="box span1">
 		  <div class="box-container">
-  		  <div class="box span1-4 no-margin">
+  		  <div class="box span1-4">
 			  <ul class="debug">
 			    <li>HTML el: &lt;DIV&gt;</li>
           <li>type: <span>box</span></li>
@@ -138,7 +141,7 @@
           <li>offset: <span>none</span></li>
         </ul>
 			</div>
-  			<div class="box span1-4 offset1-2 no-margin last-box">
+  			<div class="box span1-4 offset1-2 last-box">
 			  <ul class="debug">
 			    <li>HTML el: &lt;DIV&gt;</li>
           <li>type: <span>box</span></li>
@@ -402,8 +405,11 @@
 	</script>
 	
 	<!-- less compilator -->
+	<!-- support for LESS will be dropped soon. -->
+	<!--
 	<script src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.4/less.min.js"></script>
 	<script src="/js/libs/less.min.js"></script>
+	-->
 			
 	<!-- simplate js -->
 	<script src="/js/simplate.js"></script>
