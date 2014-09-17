@@ -1,0 +1,75 @@
+/* $some defaults */
+$valign-boxes: top;
+$box-sizing: border-box;
+$overflow: auto;
+$default-align: center;
+
+/* $if YES, sets max-width: 100% for IMG element in a box */
+$fillBoxWithImage: 'yes';
+
+/* $margins */
+$boxes-margin: -4px;
+$tiny-margin: 0.5%;
+$small-margin: 2%;
+$medium-margin: 5%;
+$large-margin: 10%;
+
+/* $box's widths*/
+$width100: 100%;
+$width85: 85.7%;
+$width83: 83.33%;
+$width80: 80%;
+$width71: 71.42%;
+$width75: 75%;
+$width66: 66.66%;
+$width60: 60%;
+$width57: 57.14%;
+$width50: 50%;
+$width43: 42.85%;
+$width40: 40%;
+$width33: 33.25%; 
+$width29: 28.57%;
+$width25: 25%;
+$width20: 19.95%;
+$width17: 16.66%;
+$width14: 14.27%;
+
+/* $responsivnes */
+@mixin respond-to($media) {
+	@if($media == 'huge desktop') {
+    	@media screen and (min-width: 90em) { @content; }
+	} 
+	@if($media == 'desktop') {
+    	@media screen and (min-width: 66em) and (max-width: 90em) { @content; }
+	} 
+	
+	@if($media == 'computer') {
+  	@media screen and (min-width: 66em) { @content; }
+	}
+	@if($media == 'tablet') {
+    	@media screen and (min-width: 36em) and (max-width: 66em) { @content; }
+	} 
+	@if($media == 'phone') {
+    	@media screen and (min-width: 18em) and (max-width: 36em) { @content; }
+	} 
+  
+  @if($media == 'mobile') {
+    	@media screen and (min-width: 18em) and (max-width: 64em) { @content; }
+	} 
+	@if($media == 'tiny screen') {
+    	@media screen and (max-width: 18em) { @content; }
+	} 
+}
+
+/* $mixins */
+@mixin calc-property($prop,$val1,$val2) { 
+  @each $pre in -webkit-, -moz- {
+    #{$prop}:  $pre +  calc(#{$val1} + #{$val2});
+  }
+  #{$prop}: calc(#{$val1} + #{$val2});
+} 
+@mixin box-sizing($sizing) {
+  -webkit-box-sizing: $sizing;
+  -moz-box-sizing: $sizing;
+  box-sizing: $sizing;
+}
