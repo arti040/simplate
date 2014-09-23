@@ -58,10 +58,10 @@
 		}
 		
 		/*
-		 * setBoxes() adds span[1-6]-[2-7] class or customClass given as parametr.
+		 * setBoxes() adds span[1-6]-[2-7] class or/and custom class-name given as parametr.
 		 * Params:
-		 * container: className (DOM) || .box-container
-		 * customClassName: className (DOM)
+		 * container: className (valid CSS class-name, optional. If not specified, .box-container elements are used.)
+		 * customClassName: className (valid CSS class-name.)
 		 */
 		
 		function setBoxes(container,customClassName) {
@@ -88,7 +88,7 @@
     		}
     		else {
       		if(childrenLength < 8) { var className = 'span1-'+childrenLength; }
-          else { console.log("Too much boxes in container, set span1[2-7] manually."); }
+          else { console.log("Too much boxes in container, set span1[2-7] manually or set a customClassName."); }
     		}
     		
     		addClass(parents[i].lastChild,opts.lastBoxClass);
