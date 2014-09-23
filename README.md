@@ -7,7 +7,7 @@ It is really, really basic and not bullet-proof (for now) so if you don't have s
 
 **Main goals:**
   - intelligent responsivness on every device (I'm still working on it!);
-  - configure with just one LESS or SASS file (SASS version will be available later);
+  - configure with just one SASS file, LESS support has been dropped!;
   - only layout related things are included (boxes), so no buttons, forms or any other pre-styled elements - if you need them, use Bootstrap or Foundation;
   - no tons of DIVs, columns or billion of classes to define an element - if you want 3 boxes in row, you take 3 elements and apply them class-name ".box", that's all;
   - no grid apprach, so no floats and clearfixes are needed - every box is just a inline-block element;
@@ -71,7 +71,13 @@ If you use a container and will not add any aditional classes for boxes, like be
 </div>
 ```
 
-...simplate will automatically add them for you. In this case, each of box will get "span1-2" and start to occupie 50% of its parent. Cool, huh? :D
+...simplate will automatically add them for you. In this case, each of box will get "span1-2" and start to occupie 50% of its parent. Cool, huh? :D Also, you can give a class name as a parametr (container) and simple will iterate thorugh desired boxes only. What's more - you cand add a fixed class for group of boxes in a particular container. Quick example:
+
+```
+setBoxes('my-posts','span1-7');
+```
+
+...which means - take containers with class .my-posts only and give .span1-7 for each .box inside. Yay! :-)
 
 
 Demo:
