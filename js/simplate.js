@@ -91,7 +91,7 @@
           else { console.log("Too much boxes in container, set span1[2-7] manually or set a customClassName."); }
     		}
     		
-    		addClass(parents[i].lastChild,opts.lastBoxClass);
+    		addClass(children[childrenLength-1],opts.lastBoxClass);
     		
     		for(j;j<childrenLength;++j) {
     		  if(!matchClass(children[j],/span[1-6]-[2-7]/)) { 
