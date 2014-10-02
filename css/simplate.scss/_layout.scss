@@ -36,6 +36,7 @@ a.box { text-decoration: none; }
 }
 .box.span1-2 {
   width: $width50;
+  @include respond-to('tablet') { @include be-like('span1-3'); }
   @include respond-to('phone') { width: 100%; }
 }
 .box.span1-3 {
@@ -252,4 +253,10 @@ a.box { text-decoration: none; }
 .offset3-5 { margin-left: $width60; }
 .offset4-5 { margin-left: $width80; }
 .offset1-6 { margin-left: $width17; }
-.offset6-6 { margin-left: $width83; }
+.offset5-6 { margin-left: $width83; }
+.offset1-7 { margin-left: $width14; }
+.offset2-7 { margin-left: $width29; }
+.offset3-7 { margin-left: $width43; }
+.offset4-7 { margin-left: $width57; }
+.offset5-7 { margin-left: $width71; }
+.offset6-7 { margin-left: $width85; }

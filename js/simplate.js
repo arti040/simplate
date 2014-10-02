@@ -1,5 +1,7 @@
 (function() {
-
+  
+    console.log('Set boxes onboard!');
+    
     //defautls
     var opts = {
       containerClass: 'box-container',
@@ -62,6 +64,12 @@
 		 * Params:
 		 * container: className (valid CSS class-name, optional. If not specified, .box-container elements are used.)
 		 * customClassName: className (valid CSS class-name.)
+		 * 
+		 * FEW EXAMPLES:
+		 * 1) setBoxes() - applies span-classes to all boxes in each .box-container element found in HTML document.
+		 * 2) setBoxes('.gallery-thumbs') - applies span-classes to each .box in .gallery-thumbs element found in HTML document.
+		 * 3) setBoxes('.menu-items','span1-2') - force .span1-2 class (50% of width of its container) for each .box in .menu-items element.
+		 *
 		 */
 		
 		function setBoxes(container,customClassName) {
@@ -100,7 +108,6 @@
     		}
       }
 		}
-    
-    //fire!
+		
 		setBoxes();
 })();
