@@ -80,8 +80,8 @@ setBoxes('my-posts','span1-7');
 ...which means - take containers with class .my-posts only and give .span1-7 for each .box inside. Yay! :-)
 
 
-**Is is possible to force one box to behave as another one, in example, on phone screens?:**
-Sure! Use be-like() mixin!
+**Is is possible to force one box to behave as another one, in example - on phone screens?:**
+Sure! Use be-like() mixin then!
 
 ```
 .span1-2 {
