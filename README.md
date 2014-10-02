@@ -81,6 +81,7 @@ setBoxes('my-posts','span1-7');
 
 
 **Is is possible to force one box to behave as another one, in example - on phone screens?:**
+
 Sure! Use be-like() mixin then!
 
 ```
