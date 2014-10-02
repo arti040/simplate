@@ -80,6 +80,20 @@ setBoxes('my-posts','span1-7');
 ...which means - take containers with class .my-posts only and give .span1-7 for each .box inside. Yay! :-)
 
 
+**Is is possible to force one box to behave as another one, in example, on phone screens?:**
+Sure! Use be-like() mixin!
+
+```
+.span1-2 {
+  @include respond-to('phone') {
+    @include be-like('span1-4');
+  }
+}
+```
+
+In the example above, .span1-2 box, which normally occupies 50% of the space of its parent, will occupy 33% of that space, when displayed on small screen.
+
+
 Demo:
 -----
 It took me only few hours to write it, so as for now only a simple demo is available. Documentation will come later, though every LESS file in the repo has useful comments.
