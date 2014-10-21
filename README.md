@@ -80,7 +80,7 @@ setBoxes('my-posts','span1-7');
 ...which means - take containers with class .my-posts only and give .span1-7 for each .box inside. Yay! :-)
 
 
-**Is is possible to force one box to behave as another one, in example - on phone screens?:**
+**Is is possible to force one box to behave as another one, in example - on phone screens?**
 
 Sure! Use be-like() mixin then!
 
@@ -92,7 +92,15 @@ Sure! Use be-like() mixin then!
 }
 ```
 
-In the example above, .span1-2 box, which normally occupies 50% of the space of its parent, will occupy 33% of that space, when displayed on small screen.
+In the example above, .span1-2 box, which normally occupies 50% of the space of its parent, will occupy 25% of that space, when displayed on small screen.
+
+
+Integration:
+------------
+1. include js/simplate.js however you prefer to;
+2. add css/simplate.scss to your project and include simplate.scss/simplate.scss file during a compilation;
+
+Voila!
 
 
 Demo:
