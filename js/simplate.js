@@ -1,7 +1,5 @@
 (function() {
-  
-    console.log('Set boxes onboard!');
-    
+      
     //defautls
     var opts = {
       containerClass: 'box-container',
