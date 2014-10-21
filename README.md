@@ -100,7 +100,7 @@ Integration:
 1. include js/simplate.js however you prefer to;
 2. add css/simplate.scss to your project and include simplate.scss/simplate.scss file during a compilation;
 3. use setBoxes() function according to description inside simplate.js
-4. 
+
 Voila!
 
 
