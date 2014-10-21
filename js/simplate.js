@@ -1,8 +1,4 @@
 (function() {
-  
-    console.log('Set boxes onboard!');
-    
-    //defautls
     var opts = {
       containerClass: 'box-container',
       boxClass: 'box',
@@ -60,7 +56,7 @@
 		}
 		
 		/*
-		 * setBoxes() adds span[1-6]-[2-7] class or/and custom class-name given as parametr.
+		 * setBoxes() adds span[1-6]-[2-7] class or/and custom class-name given as parameter.
 		 * Params:
 		 * container: className (valid CSS class-name, optional. If not specified, .box-container elements are used.)
 		 * customClassName: className (valid CSS class-name.)
