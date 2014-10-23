@@ -1,0 +1,262 @@
+*, *:before, *:after { @include box-sizing($box-sizing) }
+  
+.box-container {
+  clear: both;
+  overflow: $overflow;
+  text-align: $default-align;
+  .box { text-align: left; }
+}
+.box {
+  display: inline-block;
+  vertical-align: $valign-boxes;
+  margin-right: $boxes-margin;
+  &.last-box { margin-right: 0; }
+}
+ul.box,
+ol.box { 
+  list-style: none; 
+  margin: 0;
+  padding: 0;
+  margin-right: $boxes-margin;
+}
+a.box { text-decoration: none; }
+
+@if $fillBoxWithImage == 'yes' {
+  .box > img { max-width: 100%; }
+}
+
+.box.no-margin { 
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.box.span1 {
+  width: 100%;
+  margin-right: 0 !important;
+}
+.box.span1-2 {
+  width: $width50;
+  @include respond-to('tablet') { @include be-like('span1-3'); }
+  @include respond-to('phone') { width: 100%; }
+}
+.box.span1-3 {
+  width: $width33;
+  @include respond-to('phone') { width: 100%; }
+}
+.box.span2-3 {
+  width: $width66;
+  @include respond-to('phone') { width: 100%; }
+}
+
+.box.span1-4 {
+  width: $width25;
+  @include respond-to('phone') { width: $width50; }
+  /* $set full-width to the last box, if number of elements is odd (offset is used) */
+  &.last-box:nth-child(odd) {
+    @include respond-to('phone') { width: 100%; } 
+  }
+}
+.box.span3-4 {
+  width: $width75;
+  @include respond-to('phone') { width: 100%; }
+}
+
+.box.span1-5 {
+  width: $width20;
+  @include respond-to('phone') { width: 100%; }
+}
+.box.span2-5 {
+  width: $width40;
+  @include respond-to('phone') { width: 100%; }
+}
+.box.span3-5 {
+  width: $width60;
+  @include respond-to('phone') { width: 100%; }
+}
+.box.span4-5 {
+  width: $width80;
+  @include respond-to('phone') { width: 100%; }
+}
+
+.box.span1-6 {
+  width: $width17;
+  @include respond-to('phone') { width: 100%; }
+}
+.box.span5-6 {
+  width: $width83;
+  @include respond-to('phone') { width: 100%; }
+}
+
+.box.span1-7 {
+  width: $width14;
+  @include respond-to('phone') { width: 100%; }
+}
+.box.span2-7 {
+  width: $width29;
+  @include respond-to('phone') { width: 100%; }
+}
+.box.span3-7 {
+  width: $width43;
+}
+.box.span4-7 {
+  width: $width57;
+  @include respond-to('phone') { width: 100%; }
+}
+.box.span5-7 {
+  width: $width71;
+  @include respond-to('phone') { width: 100%; }
+}
+.box.span6-7 {
+  width: $width85;
+  @include respond-to('phone') { width: 100%; }
+}
+
+/* $set all boxes to full-width if screen is really small */
+.box[class*="span"] {
+	@include respond-to('tiny') {
+		width: 100% !important;
+		margin-right: 0;
+	}
+	@include respond-to('phone') { 
+	  margin-right: 0; 
+  }
+}
+
+/* $reset offsets on small screens also */
+.box[class*="offset"] {
+  @include respond-to('tiny') { margin-left: 0; }
+  @include respond-to('phone') { margin-left: 0; }
+}
+
+/* $custom margins */
+.box.tiny-margin {
+	@include calc-property(margin-right,$tiny-margin,$boxes-margin);
+}
+.box.small-margin {
+	@include calc-property(margin-right,$small-margin,$boxes-margin);
+}
+.box.medium-margin {
+	@include calc-property(margin-right,$medium-margin,$boxes-margin);
+}
+.box.large-margin {
+	@include calc-property(margin-right,$large-margin,$boxes-margin);
+}
+
+@include respond-to('computer') {
+  .span1.tiny-margin { width: $width100 - $tiny-margin; }
+  .span1.small-margin { width: $width100 - $small-margin; }
+  .span1.medium-margin { width: $width100 - $medium-margin; }
+  .span1.large-margin { width: $width100 - $large-margin; }
+  .span1-2.tiny-margin { width: $width50 - $tiny-margin; }
+  .span1-2.small-margin { width: $width50 - $small-margin; }
+  .span1-2.medium-margin { width: $width50 - $medium-margin; }
+  .span1-2.large-margin { width: $width50 - $large-margin; }
+  .span1-3.tiny-margin { width: $width33 - $tiny-margin; }
+  .span1-3.small-margin { width: $width33 - $small-margin; }
+  .span1-3.medium-margin { width: $width33 - $medium-margin; }
+  .span1-3.large-margin { width: $width33 - $large-margin; }
+  .span2-3.tiny-margin { width: $width66 - $tiny-margin; }
+  .span2-3.small-margin { width: $width66 - $small-margin; }
+  .span2-3.medium-margin { width: $width66 - $medium-margin; }
+  .span2-3.large-margin { width: $width66 - $large-margin; }
+  .span1-4.tiny-margin { width: $width25 - $tiny-margin; }
+  .span1-4.small-margin { width: $width25 - $small-margin; }
+  .span1-4.medium-margin { width: $width25 - $medium-margin; }
+  .span1-4.large-margin { width: $width25 - $large-margin; }
+  .span3-4.tiny-margin { width: $width75 - $tiny-margin; }
+  .span3-4.small-margin { width: $width75 - $small-margin; }
+  .span3-4.medium-margin { width: $width75 - $medium-margin; }
+  .span3-4.large-margin { width: $width75 - $large-margin; }
+  .span1-5.tiny-margin { width: $width20 - $tiny-margin; }
+  .span1-5.small-margin { width: $width20 - $small-margin; }
+  .span1-5.medium-margin { width: $width20 - $medium-margin; }
+  .span1-5.large-margin { width: $width20 - $large-margin; }
+  .span2-5.tiny-margin { width: $width40 - $tiny-margin; }
+  .span2-5.small-margin { width: $width40 - $small-margin; }
+  .span2-5.medium-margin { width: $width40 - $medium-margin; }
+  .span2-5.large-margin { width: $width40 - $large-margin; }
+  .span3-5.tiny-margin { width: $width60 - $tiny-margin; }
+  .span3-5.small-margin { width: $width60 - $small-margin; }
+  .span3-5.medium-margin { width: $width60 - $medium-margin; }
+  .span3-5.large-margin { width: $width60 - $large-margin; }
+  .span4-5.tiny-margin { width: $width80 - $tiny-margin; }
+  .span4-5.small-margin { width: $width80 - $small-margin; }
+  .span4-5.medium-margin { width: $width80 - $medium-margin; }
+  .span4-5.large-margin { width: $width80 - $large-margin; }
+  .span1-6.tiny-margin { width: $width17 - $tiny-margin; }
+  .span1-6.small-margin { width: $width17 - $small-margin; }
+  .span1-6.medium-margin { width: $width17 - $medium-margin; }
+  .span1-6.large-margin { width: $width17 - $large-margin; }  
+  .span5-6.tiny-margin { width: $width83 - $tiny-margin; }
+  .span5-6.small-margin { width: $width83 - $small-margin; }
+  .span5-6.medium-margin { width: $width83 - $medium-margin; }
+  .span5-6.large-margin { width: $width83 - $large-margin; }
+}
+@include respond-to('tablet') {
+  .span1.tiny-margin { width: $width100 - $tiny-margin; }
+  .span1.small-margin { width: $width100 - $small-margin; }
+  .span1.medium-margin { width: $width100 - $medium-margin; }
+  .span1.large-margin { width: $width100 - $large-margin; }
+  .span1-2.tiny-margin { width: $width50 - $tiny-margin; }
+  .span1-2.small-margin { width: $width50 - $small-margin; }
+  .span1-2.medium-margin { width: $width50 - $medium-margin; }
+  .span1-2.large-margin { width: $width50 - $large-margin; }
+  .span1-3.tiny-margin { width: $width33 - $tiny-margin; }
+  .span1-3.small-margin { width: $width33 - $small-margin; }
+  .span1-3.medium-margin { width: $width33 - $medium-margin; }
+  .span1-3.large-margin { width: $width33 - $large-margin; }
+  .span2-3.tiny-margin { width: $width66 - $tiny-margin; }
+  .span2-3.small-margin { width: $width66 - $small-margin; }
+  .span2-3.medium-margin { width: $width66 - $medium-margin; }
+  .span2-3.large-margin { width: $width66 - $large-margin; }
+  .span1-4.tiny-margin { width: $width25 - $tiny-margin; }
+  .span1-4.small-margin { width: $width25 - $small-margin; }
+  .span1-4.medium-margin { width: $width25 - $medium-margin; }
+  .span1-4.large-margin { width: $width25 - $large-margin; }
+  .span3-4.tiny-margin { width: $width75 - $tiny-margin; }
+  .span3-4.small-margin { width: $width75 - $small-margin; }
+  .span3-4.medium-margin { width: $width75 - $medium-margin; }
+  .span3-4.large-margin { width: $width75 - $large-margin; }
+  .span1-5.tiny-margin { width: $width20 - $tiny-margin; }
+  .span1-5.small-margin { width: $width20 - $small-margin; }
+  .span1-5.medium-margin { width: $width20 - $medium-margin; }
+  .span1-5.large-margin { width: $width20 - $large-margin; }
+  .span2-5.tiny-margin { width: $width40 - $tiny-margin; }
+  .span2-5.small-margin { width: $width40 - $small-margin; }
+  .span2-5.medium-margin { width: $width40 - $medium-margin; }
+  .span2-5.large-margin { width: $width40 - $large-margin; }
+  .span3-5.tiny-margin { width: $width60 - $tiny-margin; }
+  .span3-5.small-margin { width: $width60 - $small-margin; }
+  .span3-5.medium-margin { width: $width60 - $medium-margin; }
+  .span3-5.large-margin { width: $width60 - $large-margin; }
+  .span4-5.tiny-margin { width: $width80 - $tiny-margin; }
+  .span4-5.small-margin { width: $width80 - $small-margin; }
+  .span4-5.medium-margin { width: $width80 - $medium-margin; }
+  .span4-5.large-margin { width: $width80 - $large-margin; }
+  .span1-6.tiny-margin { width: $width17 - $tiny-margin; }
+  .span1-6.small-margin { width: $width17 - $small-margin; }
+  .span1-6.medium-margin { width: $width17 - $medium-margin; }
+  .span1-6.large-margin { width: $width17 - $large-margin; }  
+  .span5-6.tiny-margin { width: $width83 - $tiny-margin; }
+  .span5-6.small-margin { width: $width83 - $small-margin; }
+  .span5-6.medium-margin { width: $width83 - $medium-margin; }
+  .span5-6.large-margin { width: $width83 - $large-margin; }
+}
+
+/* $offsets */
+.offset1-2 { margin-left: $width50; }
+.offset1-3 { margin-left: $width33; }
+.offset1-4 { margin-left: $width25; }
+.offset3-4 { margin-left: $width75; }
+.offset1-5 { margin-left: $width20; }
+.offset2-5 { margin-left: $width40; }
+.offset3-5 { margin-left: $width60; }
+.offset4-5 { margin-left: $width80; }
+.offset1-6 { margin-left: $width17; }
+.offset5-6 { margin-left: $width83; }
+.offset1-7 { margin-left: $width14; }
+.offset2-7 { margin-left: $width29; }
+.offset3-7 { margin-left: $width43; }
+.offset4-7 { margin-left: $width57; }
+.offset5-7 { margin-left: $width71; }
+.offset6-7 { margin-left: $width85; }
