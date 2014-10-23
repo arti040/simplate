@@ -1,10 +1,10 @@
-(function() {
-      
-    //defautls
+var simplate = function(container,customClassName) {
+  	
+  	//defautls
     var opts = {
       containerClass: 'box-container',
       boxClass: 'box',
-      lastBoxClass: '.last-box'
+      lastBoxClass: 'last-box'
     }
  		var resizeTimeoutId;	
 
@@ -35,11 +35,21 @@
 		}
 		
 		function getContainers(container) {
-		  el = container || opts.containerClass;
-  		return document.querySelectorAll('.'+el);
+		  el = container || '.'+opts.containerClass;
+  		return document.querySelectorAll(el);
 		}
 		function getBoxes(container) {
-  		return container.querySelectorAll('.'+opts.boxClass);
+  		var boxes = [];
+  		i = 0;
+  		
+  		var children = container.childNodes;
+  		var childrenLength = children.length;
+  		for(i;i<childrenLength;++i) {
+    		if(children[i].tagName == 'DIV' && hasClass(children[i],opts.boxClass)) {
+      		boxes.push(children[i]);
+    		}
+  		}
+  		return boxes;
 		}
 		
 		function setHeight(parents,el) {
@@ -70,13 +80,12 @@
 		 *
 		 */
 		
-		function setBoxes(container,customClassName) {
+		function setBoxes(container,customClassName) {		  
 		  var parents;
 		  var i = 0;
 		  
 		  container ? parents = getContainers(container) : parents = getContainers(); 
   		var parentsLength = parents.length;
-  			
   		//all magic is here  		
   		for(i;i<parentsLength;++i) {
   		  var j = 0;
@@ -101,11 +110,14 @@
     		
     		for(j;j<childrenLength;++j) {
     		  if(!matchClass(children[j],/span[1-6]-[2-7]/)) { 
-    		    addClass(children[j],className);
+    		    addClass(children[j],className+' scc');
     		  }
     		}
       }
 		}
-		
-		setBoxes();
-})();
+    
+    //fire!
+    setBoxes(container,customClassName);
+}
+
+simplate();
