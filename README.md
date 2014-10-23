@@ -37,7 +37,9 @@ It is really, really basic and not bullet-proof (for now) so if you don't have s
     
     * ...and so on. 
 
+
 **Why span1-2, span1-3? What's that?**
+
 They are just a CSS-class representation of fractions. In example: 1-2 means 1/2 (your box will gonna occupy 50% of its container), 1-5 meanse 1/5 (20% of cotnainer) etc.
 
 **Offsets**
