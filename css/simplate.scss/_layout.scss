@@ -5,7 +5,6 @@
   overflow: $overflow;
   text-align: $default-align;
   .box { text-align: left; }
-  .box:first-child { margin-left: $boxes-margin; }
 }
 .box {
   display: inline-block;
