@@ -59,7 +59,7 @@ Remember one thing only - sum of all elements widths and offsets cannot overdraw
 
 **Only DIVs?**
 
-Of course no! You are not limited to DIVs only! Every element can be a box, just give it a class ".box":
+Of course no! You are not limited to DIVs! Every element can be a box, just give it a class ".box":
 ```
 <a href="#" class="box span1-5">This a link, which is also a box, which has 20% of its parent's width</a>
 ```
