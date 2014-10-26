@@ -3,14 +3,14 @@ simplate
 ========
 
 Simplate is a tiny responsive template engine for simple websites like blogs, company's websites or even apps.
-It is really, really basic and not bullet-proof (for now) so if you don't have strong foundation in CSS/LESS you should probably go with Bootstrap or use any other CSS framework, there are many on today's Internet.
+It is really, really basic and not bullet-proof (for now) so if you don't have strong foundation in CSS/SASS you should probably go with Bootstrap or use any other CSS framework, there are many on today's Internet.
 
 **Main goals:**
   - intelligent responsivness on every device (I'm still working on it!);
   - configure with just one SASS file, LESS support has been dropped!;
   - only layout related things are included (boxes), so no buttons, forms or any other pre-styled elements - if you need them, use Bootstrap or Foundation;
   - no tons of DIVs, columns or billion of classes to define an element - if you want 3 boxes in row, you take 3 elements and apply them class-name "box span[fraction]" (explained below), that's all;
-  - no grid apprach, so no floats and clearfixes are needed - every box is just a inline-block element;
+  - no grid apprach, so no floats and clearfixes are NOT needed - every box is just a inline-block element;
   - in 9/10 cases no any additional DIV.container is needed;
   - you can build boxes in almost every combination, just few examples:
     * one full-width element:
