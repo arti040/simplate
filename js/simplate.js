@@ -1,5 +1,4 @@
 var simplate = function(container,customClassName) {
-  	
   	//defautls
     var opts = {
       containerClass: 'box-container',
@@ -25,6 +24,20 @@ var simplate = function(container,customClassName) {
 		function windowResize(e) {
 			window.clearTimeout(resizeTimeoutId);
 			resizeTimeoutId = window.setTimeout(function(){ console.log('Simplate: Layout changed.'); },200);
+		}
+		function setHeight(parents,el) {
+		  var parents = getContainers();
+		  var parentsLength = parentEls.length;
+		  var i = 0;
+		  for(i;i<parentsLength;++i) {
+  		  var parentHeight = parents[i].offsetHeight;
+  		  var boxes = getBoxes(pranets[i]);
+  		  var boxesLength = boxes.length;
+  		  var j = 0;
+  		  for(j;j<boxesLength;++j) {
+    		  boxes[i].style.height = parentHeight + 'px';
+  		  }
+		  }
 		}
 		function equalsHeights(firstEL,secondEl) {
 		  var firstEl = document.getElementById(firstEl);
@@ -52,21 +65,6 @@ var simplate = function(container,customClassName) {
   		return boxes;
 		}
 		
-		function setHeight(parents,el) {
-		  var parents = getContainers();
-		  var parentsLength = parentEls.length;
-		  var i = 0;
-		  for(i;i<parentsLength;++i) {
-  		  var parentHeight = parents[i].offsetHeight;
-  		  var boxes = getBoxes(pranets[i]);
-  		  var boxesLength = boxes.length;
-  		  var j = 0;
-  		  for(j;j<boxesLength;++j) {
-    		  boxes[i].style.height = parentHeight + 'px';
-  		  }
-		  }
-		}
-		
 		/*
 		 * setBoxes() adds span[1-6]-[2-7] class or/and custom class-name given as parametr.
 		 * Params:
@@ -85,34 +83,34 @@ var simplate = function(container,customClassName) {
 		  var i = 0;
 		  
 		  container ? parents = getContainers(container) : parents = getContainers(); 
+  		
   		var parentsLength = parents.length;
+
   		//all magic is here  		
   		for(i;i<parentsLength;++i) {
   		  var j = 0;
     		var children = getBoxes(parents[i]);
     		var childrenLength = children.length;
-    		
+
     		//if custom class is defined use it
     		if(customClassName) {
       		if(typeof customClassName == 'array') {
         		//TODO
       		}
       		else {
-        		className = customClassName;
+        		className = customClassName.replace(/^./g,' ');
       		}
     		}
     		else {
       		if(childrenLength < 8) { var className = 'span1-'+childrenLength; }
-          else { console.log("Too much boxes in container, set span1[2-7] manually or set a customClassName."); }
+          else { console.log("Simplate(): Too much boxes in container, set span1[2-7] manually or set a customClassName."); }
     		}
-    		
-    		addClass(children[childrenLength-1],opts.lastBoxClass);
-    		
     		for(j;j<childrenLength;++j) {
     		  if(!matchClass(children[j],/span[1-6]-[2-7]/)) { 
     		    addClass(children[j],className+' scc');
     		  }
     		}
+    		addClass(children[childrenLength-1],opts.lastBoxClass);
       }
 		}
     
