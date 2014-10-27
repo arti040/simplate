@@ -3,15 +3,15 @@ simplate
 ========
 
 Simplate is a tiny responsive template engine for simple websites like blogs, company's websites or even apps.
-It is really, really basic and not bullet-proof (for now) so if you don't have strong foundation in CSS/LESS you should probably go with Bootstrap or use any other CSS framework, there are many on today's Internet.
+It is really, really basic and not bullet-proof (for now) so if you don't have strong foundation in CSS/SASS you should probably go with Bootstrap or use any other CSS framework, there are many on today's Internet.
 
 **Main goals:**
   - intelligent responsivness on every device (I'm still working on it!);
   - configure with just one SASS file, LESS support has been dropped!;
   - only layout related things are included (boxes), so no buttons, forms or any other pre-styled elements - if you need them, use Bootstrap or Foundation;
-  - no tons of DIVs, columns or billion of classes to define an element - if you want 3 boxes in row, you take 3 elements and apply them class-name ".box", that's all;
+  - no tons of DIVs, columns or billion of classes to define an element - if you want 3 boxes in row, you take 3 elements and apply them class-name "box span[fraction]" (explained below), that's all;
   - no grid apprach, so no floats and clearfixes are needed - every box is just a inline-block element;
-  - in 9/10 cases no any additional DIV.container is needed;
+  - in 9/10 cases no any additional container is needed;
   - you can build boxes in almost every combination, just few examples:
     * one full-width element:
     ```<div class="box"></div>```
@@ -38,9 +38,13 @@ It is really, really basic and not bullet-proof (for now) so if you don't have s
     * ...and so on. 
 
 
+**Why span1-2, span1-3? What's that?**
+
+They are just a CSS-class representation of fractions. In example: 1-2 means 1/2 (your box will gonna occupy 50% of its container), 1-5 means 1/5 (20% of container) etc.
+
 **Offsets**
 
-Grid's-like offsets are possible too. In example, if you have four elements in row but you want only three and the last one needs to be moved to the right of its parent, you can use an offset class-name like in the example below:
+Grid's-like offsets are possible too. In example, if you have four elements in row but you want only three side-by-side and the last one needs to be moved to the right of its parent, you can use an offset class-name like in the example below:
 ```
 <div class="some-container">
   <div class="box span1-4"></div> //box occupies 25% of parent's width
@@ -55,7 +59,7 @@ Remember one thing only - sum of all elements widths and offsets cannot overdraw
 
 **Only DIVs?**
 
-Of course no! You are not limited to DIVs only! Every element can be a box, just give it a class ".box":
+Of course no! You are not limited to DIVs! Every element can be a box, just give it a class ".box":
 ```
 <a href="#" class="box span1-5">This a link, which is also a box, which has 20% of its parent's width</a>
 ```
